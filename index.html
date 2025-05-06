@@ -114,24 +114,6 @@
     }
   }
 </style>
-    <script>
-  function createSakuraPetal() {
-    const petal = document.createElement('div');
-    petal.classList.add('sakura-petal');
-    petal.style.left = Math.random() * window.innerWidth + 'px';
-    petal.style.animationDuration = Math.random() * 5 + 3 + 's'; // Thời gian rơi ngẫu nhiên
-    petal.style.opacity = Math.random() * 0.5 + 0.5; // Độ trong suốt
-    petal.style.transform = `scale(${Math.random() * 0.8 + 0.5})`; // Kích thước ngẫu nhiên
-    document.body.appendChild(petal);
-
-    setTimeout(() => {
-      petal.remove();
-    }, 8000); // Gỡ bỏ sau thời gian rơi
-  }
-
-  setInterval(createSakuraPetal, 200); // Tạo cánh hoa mỗi 200ms
-</script>
-   
 </head>
 <body class="bg-gray-50">
     <!-- Social Links -->
