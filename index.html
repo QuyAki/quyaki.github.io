@@ -87,41 +87,51 @@
   .sakura-petal {
     position: fixed;
     top: -10px;
-    width: 15px;
-    height: 15px;
+    width: 10px; /* Kích thước nhỏ hơn để tạo cảm giác lá mỏng */
+    height: 15px; /* Tăng chiều cao để giống hình lá */
     background-color: pink;
     opacity: 0.8;
     border-radius: 50%;
-    animation: fall linear infinite;
+    transform-origin: center;
+    animation: fall-diagonal linear infinite, sway 3s ease-in-out infinite;
   }
 
-  @keyframes fall {
+  @keyframes fall-diagonal {
     0% {
-      transform: translateY(0) rotate(0deg);
+      transform: translateX(0) translateY(0) rotate(0deg);
     }
     100% {
-      transform: translateY(100vh) rotate(360deg);
+      transform: translateX(100vw) translateY(100vh) rotate(360deg);
+    }
+  }
+
+  @keyframes sway {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(20px);
     }
   }
 </style>
-
-<script>
+    <script>
   function createSakuraPetal() {
     const petal = document.createElement('div');
     petal.classList.add('sakura-petal');
     petal.style.left = Math.random() * window.innerWidth + 'px';
-    petal.style.animationDuration = Math.random() * 3 + 2 + 's';
-    petal.style.opacity = Math.random();
-    petal.style.transform = `scale(${Math.random()})`;
+    petal.style.animationDuration = Math.random() * 5 + 3 + 's'; // Thời gian rơi ngẫu nhiên
+    petal.style.opacity = Math.random() * 0.5 + 0.5; // Độ trong suốt
+    petal.style.transform = `scale(${Math.random() * 0.8 + 0.5})`; // Kích thước ngẫu nhiên
     document.body.appendChild(petal);
 
     setTimeout(() => {
       petal.remove();
-    }, 5000);
+    }, 8000); // Gỡ bỏ sau thời gian rơi
   }
 
-  setInterval(createSakuraPetal, 300);
+  setInterval(createSakuraPetal, 200); // Tạo cánh hoa mỗi 200ms
 </script>
+   
 </head>
 <body class="bg-gray-50">
     <!-- Social Links -->
