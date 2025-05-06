@@ -83,6 +83,45 @@
             100% { transform: translateY(0px); }
         }
     </style>
+    <style>
+  .sakura-petal {
+    position: fixed;
+    top: -10px;
+    width: 15px;
+    height: 15px;
+    background-color: pink;
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+    }
+  }
+</style>
+
+<script>
+  function createSakuraPetal() {
+    const petal = document.createElement('div');
+    petal.classList.add('sakura-petal');
+    petal.style.left = Math.random() * window.innerWidth + 'px';
+    petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+    petal.style.opacity = Math.random();
+    petal.style.transform = `scale(${Math.random()})`;
+    document.body.appendChild(petal);
+
+    setTimeout(() => {
+      petal.remove();
+    }, 5000);
+  }
+
+  setInterval(createSakuraPetal, 300);
+</script>
 </head>
 <body class="bg-gray-50">
     <!-- Social Links -->
