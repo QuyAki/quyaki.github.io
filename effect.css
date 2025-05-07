@@ -10,3 +10,31 @@
   opacity: 1;
   transform: translateY(0);
 }
+:root {
+  --pink-pastel: #FFC1CC; /* Hồng pastel */
+  --ivory-white: #F8F8F2; /* Trắng ngà */
+  --light-gray: #E5E5E5; /* Xám nhạt */
+  --text-dark: #4A4A4A;  /* Màu chữ tối */
+  --primary-accent: #FF8A80; /* Màu nhấn */
+}
+
+body {
+  background-color: var(--ivory-white);
+  color: var(--text-dark);
+  font-family: 'Poppins', sans-serif;
+}
+
+.header, .footer {
+  background-color: var(--pink-pastel);
+  color: var(--text-dark);
+}
+
+.button {
+  background-color: var(--primary-accent);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--pink-pastel);
+}
