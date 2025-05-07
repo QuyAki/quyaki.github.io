@@ -38,3 +38,14 @@ body {
 .button:hover {
   background-color: var(--pink-pastel);
 }
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Lora', serif;
+}
+
+p, span, li {
+  font-family: 'Noto Sans JP', sans-serif;
+}
