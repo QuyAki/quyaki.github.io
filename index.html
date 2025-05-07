@@ -6,6 +6,8 @@
     <title>Nguyen Quy | Personal Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -83,56 +85,13 @@
             100% { transform: translateY(0px); }
         }
     </style>
-    <style>
-  .sakura-petal {
-    position: fixed;
-    top: -10px;
-    width: 10px; /* Kích thước nhỏ hơn để tạo cảm giác lá mỏng */
-    height: 15px; /* Tăng chiều cao để giống hình lá */
-    background-color: pink;
-    opacity: 0.8;
-    border-radius: 50%;
-    transform-origin: center;
-    animation: fall-diagonal linear infinite, sway 3s ease-in-out infinite;
-  }
-
-  @keyframes fall-diagonal {
-    0% {
-      transform: translateX(0) translateY(0) rotate(0deg);
-    }
-    100% {
-      transform: translateX(100vw) translateY(100vh) rotate(360deg);
-    }
-  }
-
-  @keyframes sway {
-    0%, 100% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(20px);
-    }
-  }
-</style>
-    <script>
-  function createSakuraPetal() {
-    const petal = document.createElement('div');
-    petal.classList.add('sakura-petal');
-    petal.style.left = Math.random() * window.innerWidth + 'px';
-    petal.style.animationDuration = Math.random() * 5 + 3 + 's'; // Thời gian rơi ngẫu nhiên
-    petal.style.opacity = Math.random() * 0.5 + 0.5; // Độ trong suốt
-    petal.style.transform = `scale(${Math.random() * 0.8 + 0.5})`; // Kích thước ngẫu nhiên
-    document.body.appendChild(petal);
-
-    setTimeout(() => {
-      petal.remove();
-    }, 8000); // Gỡ bỏ sau thời gian rơi
-  }
-
-  setInterval(createSakuraPetal, 200); // Tạo cánh hoa mỗi 200ms
-</script>
    
 </head>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
 <body class="bg-gray-50">
     <!-- Social Links -->
     <div class="flex space-x-4 mt-8 justify-center">
