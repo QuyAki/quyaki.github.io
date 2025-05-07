@@ -82,7 +82,68 @@
             100% { transform: translateY(0px); }
         }
     </style>
+    <style>
+/* Hoa anh đào */
+.sakura-petal {
+  position: fixed;
+  top: -10px;
+  width: 15px; /* Kích thước cánh hoa */
+  height: 15px;
+  background-color: pink;
+  opacity: 0.8;
+  border-radius: 50%;
+  transform-origin: center;
+  animation: fall-diagonal 10s linear infinite, sway 3s ease-in-out infinite;
+}
+
+/* Hoạt ảnh rơi chéo */
+@keyframes fall-diagonal {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(100vw) translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Hiệu ứng lắc lư */
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+</style>
 <head>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const createPetal = () => {
+    const petal = document.createElement('div');
+    petal.classList.add('sakura-petal');
+
+    // Vị trí xuất hiện ngẫu nhiên
+    petal.style.left = `${Math.random() * 100}vw`;
+
+    // Thời gian rơi ngẫu nhiên
+    petal.style.animationDuration = `${Math.random() * 5 + 5}s`; // 5-10 giây
+
+    // Kích thước ngẫu nhiên
+    petal.style.width = petal.style.height = `${Math.random() * 10 + 10}px`;
+
+    document.body.appendChild(petal);
+
+    // Xóa cánh hoa sau khi hoàn thành hoạt ảnh
+    petal.addEventListener('animationend', () => {
+      petal.remove();
+    });
+  };
+
+  // Tạo cánh hoa mỗi 300ms
+  setInterval(createPetal, 300);
+});
+</script>
 <body class="bg-gray-50">
     <!-- Social Links -->
     <div class="flex space-x-4 mt-8 justify-center">
